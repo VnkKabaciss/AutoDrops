@@ -1,18 +1,15 @@
-﻿using Rocket.API;
+using Rocket.API;
 
 namespace AutoDropsTimer
 {
      public class AutoDropsConfig : IRocketPluginConfiguration
 {
-        public bool Enabled;
-        public ushort SendInterval;
-        public string SendMsg;
+        public bool Enabled = true;
+        public ushort SendInterval = 1200;
 
         public void LoadDefaults()
         {
-             Enabled = true; 
-             SendInterval = 20; 
-             SendMsg = "Automatic Airdrop Launched! Go catch it!";
+
         }
     }
 }
