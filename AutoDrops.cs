@@ -29,12 +29,11 @@ namespace AutoDropsTimer
 
         private void checkChat()
         {
-            if ((DateTime.Now - this.lastCalled).TotalSeconds > 1200)
+            if ((DateTime.Now - this.lastCalled).TotalSeconds > Configuration.Instance.SendInterval)
             {
                 SendMSG();
                 RunDrop();
                 this.lastCalled = DateTime.Now;
-                FixedUpdate();
             }
         }
         public static void SendMSG()
@@ -45,13 +44,6 @@ namespace AutoDropsTimer
         public void RunDrop()
         {
             CommandWindow.ConsoleInput.onInputText.Invoke("airdrop");
-        }
-        public void FixedUpdate()
-        {
-            if ((DateTime.Now - this.lastCalled).TotalSeconds > 1)
-            {
-                checkChat();
-            }
         }
     }
 }
